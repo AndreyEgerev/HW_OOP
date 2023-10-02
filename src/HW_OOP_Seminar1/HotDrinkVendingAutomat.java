@@ -3,7 +3,7 @@ package HW_OOP_Seminar1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HotDrinkVendingAutomat<HotDrink extends HW_OOP_Seminar1.HotDrink> implements Authomat<HotDrink> {
+public class HotDrinkVendingAutomat implements Authomat<HotDrink> {
 
     private List<HotDrink> hotDrinkList = new ArrayList<>();
 
@@ -21,7 +21,7 @@ public class HotDrinkVendingAutomat<HotDrink extends HW_OOP_Seminar1.HotDrink> i
 /** Вывод названия продуктов загруженных в торговый автомат*/
     @Override
     public void printProduct() {
-        if (hotDrinkList.size() == 0){
+        if (hotDrinkList.isEmpty()){
             System.out.println("Автомат пуст");
         }
         else{
