@@ -43,7 +43,7 @@ public class ComplexNumService {
      * @return комплексное число в формате ComplexNumber
      */
     public static ComplexNumber parseComplexNum(String number){
-        String[] num = number.replaceAll("i","").split("[+-]");
+        String[] num = number.replaceAll("i","").replaceAll("I","").split("[+-]");
         if (num.length==2){
             return new ComplexNumber(Double.parseDouble(num[0]),number.contains("-") ? Double.parseDouble(num[1])*-1 : Double.parseDouble(num[1]));
         } else return new ComplexNumber(Double.parseDouble(num[0]),0);
