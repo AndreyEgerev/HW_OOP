@@ -43,10 +43,15 @@ public class ComplexNumService {
      * @return комплексное число в формате ComplexNumber
      */
     public static ComplexNumber parseComplexNum(String number){
+        int i = 1;
+        if (number.indexOf("-") == 0){
+            i = -1;
+            number = number.substring(1);
+        }
         String[] num = number.replaceAll("i","").replaceAll("I","").split("[+-]");
         if (num.length==2){
-            return new ComplexNumber(Double.parseDouble(num[0]),number.contains("-") ? Double.parseDouble(num[1])*-1 : Double.parseDouble(num[1]));
-        } else return new ComplexNumber(Double.parseDouble(num[0]),0);
+            return new ComplexNumber(Double.parseDouble(num[0])*i,number.contains("-") ? Double.parseDouble(num[1])*-1 : Double.parseDouble(num[1]));
+        } else return new ComplexNumber(Double.parseDouble(num[0])*i,0);
     }
 
     /** Подготовка строки для корректных преобразований комплексного числа
